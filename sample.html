@@ -46,7 +46,55 @@
  }else{alert("7BITS!")} 
  } 
   
- </script> </head> <body> 
+ </script> 
+<style>
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+</style>
+</head> <body> 
+<div class="dropdown">
+  <button class="dropbtn">Select</button>
+  <div class="dropdown-content">
+    <a href="https://markaron123.github.io/ite6/text.html">Character to Binary</a>
+    <a href="https://markaron123.github.io/ite6/sample.html">Binary to Character</a>
+  </div><br><br><br><br> 
  <label>Input Binary:</label> 
  <input type='text' id='binary'><input type='submit' value='Convert this shit' onclick='binary_to_string()'> 
  <p id='answer'> </p> 
