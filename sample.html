@@ -1,0 +1,53 @@
+<!doctype html> <head> 
+ <title>BINARY-LETTER</title> 
+ <script> 
+ function binary_to_string() 
+ { 
+ var binary = document.getElementById("binary").value; 
+ var integer = 0; 
+ var answer=''; 
+ var ctr = 1; 
+
+
+ if ( binary.length%7 === 0 )//checks if the binary is devisable by 7 ( ASCII char-set has only 7bits ) 
+ { 
+ //Outer loop will increment by seven. 
+ for ( var i = 0; i < binary.length; i+=7) 
+ { 
+ /**Variables: 
+ | var integer - Storage of the final answer 
+ | var ctr - Will increment by 1,2,4,8,16,32,64... 
+ **/ 
+ var integer=0; 
+ var ctr=1; 
+
+ //The binary.substring will get a portion of the string and store it to the 'sub' variable (e.g. binary.substring(7,13) of "10000010000001" will be 0000001) 
+ var end = i+6; 
+ var sub = binary.substring(i,end+1); 
+
+ //inner loop will convert the seven bits binary to decimal. All one will be added to the 'integer' variable ( e.g. 1000001 will be equal to 65 ) 
+ for ( var j = 6; j >= 0; j-=1) 
+ { 
+ var tmp = sub.charAt(j); 
+ if ( tmp === '1') 
+ { 
+ integer += ctr; 
+ } 
+ ctr = ctr*2; 
+ } 
+ //end of inner loop 
+
+ //gets the ascii equivalent of the variable 'integer' and stores it to the variable 'answer' 
+ answer += String.fromCharCode(integer); 
+ } 
+
+ //displays the answer 
+ document.getElementById("answer").firstChild.nodeValue = answer; 
+ }else{alert("7BITS!")} 
+ } 
+  
+ </script> </head> <body> 
+ <label>Input Binary:</label> 
+ <input type='text' id='binary'><input type='submit' value='Convert this shit' onclick='binary_to_string()'> 
+ <p id='answer'> </p> 
+ </body></html>
